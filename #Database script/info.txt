@@ -1,0 +1,5 @@
+Request example:
+
+http://localhost:8000/cities/search/b
+
+http://localhost:8000/cities/search/bang
