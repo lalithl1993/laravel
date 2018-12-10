@@ -18,8 +18,14 @@ class cityController extends Controller
      */
     public function show($q)
     {
-        $cities = DB::select('select * from city where name like "'.$q.'%"');
+        $dbCities = DB::select('select name from city where name like "'.$q.'%"');
         //return view('stud_view',['users'=>$users]);
-        return response()->json( $cities);
+        $cities=array();
+        foreach ($dbCities as $value)
+        {
+        array_push($cities,$value->name);
+    }
+    $result['results'] = $cities;
+        return response()->json($result);
     }
 }
